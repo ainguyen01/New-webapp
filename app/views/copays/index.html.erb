@@ -29,11 +29,14 @@
 
         <td><%= copay.url %></td>
         <td><%= copay.user_id %></td> -->
+        <%if current_user != nil %>
+
         <td>
           <a href="/copays/<%= copay.id %>" class="btn btn-primary">Show</a>
           <a href="/copays/<%= copay.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_copay/<%= copay.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
         </td>
+        <%end%>
       </tr>
       <% end %>
     </table>

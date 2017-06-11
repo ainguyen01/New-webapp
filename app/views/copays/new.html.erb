@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Add Copay</h3>
+  <h3>Add Copay Cards</h3>
 </div>
 
 <div class="row">
@@ -39,7 +39,7 @@
       <!-- Label and input for max_saving -->
       <div class="form-group">
         <label for="max_saving" class="control-label">
-          Max saving
+          Max savings
         </label>
 
         <input type="text" id="max_saving" name="max_saving" placeholder="Max saving" class="form-control" value="<%= @copay.max_saving %>">
@@ -48,10 +48,10 @@
       <!-- Label and input for cap -->
       <div class="form-group">
         <label for="cap" class="control-label">
-          Cap
+          Limits
         </label>
 
-        <input type="text" id="cap" name="cap" placeholder="Cap" class="form-control" value="<%= @copay.cap %>">
+        <input type="text" id="cap" name="cap" placeholder="Limits" class="form-control" value="<%= @copay.cap %>">
       </div>
 
       <!-- Label and input for url -->
