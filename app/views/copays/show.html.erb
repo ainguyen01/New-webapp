@@ -1,5 +1,24 @@
 <div class="page-header">
-  <h3><%= @copay.name %></h3>
+
+
+
+  <form action="/create_dislike" method="post">
+    <!-- Hidden input for authenticity token to protect from forgery -->
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+    <input type="hidden" name="copay_id" value="<%= @copay.id %>">
+
+    <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+    <h1><%= @copay.name %>
+      <button class="btn btn-link">
+        <h3>
+          <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+        </h3>
+      </button>
+    </h1>
+
+  </form>
 </div>
 
 <div class="row">
@@ -26,9 +45,6 @@
         <i class="fa fa-pencil" aria-hidden="true"></i>
       </a>
 
-      <a href="/create_dislike" class="btn btn-primary">
-        <i class="fa fa-thumbs-down" aria-hidden="true"></i>
-      </a>
       <a href="/delete_copay/<%= @copay.id %>" class="btn btn-danger" rel="nofollow">
         <i class="fa fa-trash" aria-hidden="true"></i>
       </a>
@@ -36,11 +52,38 @@
   </div>
 </div>
 
-<h3>Comments</h3>
+<h3>
+Number of Thumbs Down : <%=@copay.thumbs_downs.count%>
+</h3>
+
+<h3>Comments </h3>
 <ul>
-<%= @copay.comments.each do |comment| %>
-<li>
-"<%=comment.body%>"
-</li>
-<%end%>
+  <%= @copay.comments.each do |comment| %>
+  <li>
+    "<%=comment.body%>"
+  </li>
+  <%end%>
+
+  <li class="media">
+    <div class="media-body">
+      <form action="/create_comment" method="post">
+        <!-- Hidden input for authenticity token to protect from forgery -->
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+        <input type="hidden" name="copay_id" value="<%= @copay.id %>">
+
+        <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+        <!-- Label and input for body -->
+        <div class="form-group">
+          <label for="body" class="sr-only">
+            Body
+          </label>
+
+          <input type="text" id="body" name="body" placeholder="Add a comment..." class="form-control" required>
+        </div>
+      </form>
+    </div>
+  </li>
+
 </ul>

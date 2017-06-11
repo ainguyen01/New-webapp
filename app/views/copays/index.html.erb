@@ -13,6 +13,7 @@
         <th>Pay as little as</th>
         <th>Max saving</th>
         <th> <i class="fa fa-thumbs-down" aria-hidden="true"></i></th>
+        <th>Actions</th>
         <!-- <th>Cap</th>
         <th>Url</th>
         <th>User</th>
@@ -21,7 +22,7 @@
 
       <% @copays.sort {|a,b| a.name <=> b.name }.each do |copay| %>
       <tr>
-        <td> <a href="<%= copay.url %>"> <%= copay.name %></a></td>
+        <td> <a href="/copays/<%=copay.id%>"> <%= copay.name %></a></td>
 
         <td><%= copay.pay_as_little_as %></td>
         <td><%= copay.max_saving %></td>

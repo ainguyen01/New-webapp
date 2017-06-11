@@ -26,7 +26,9 @@ class DislikesController < ApplicationController
     save_status = @dislike.save
 
     if save_status == true
-      redirect_to("/dislikes/#{@dislike.id}", :notice => "Dislike created successfully.")
+
+      redirect_to("/copays/#{@dislike.copay_id}", :notice => "Dislike created successfully.")
+
     else
       render("dislikes/new.html.erb")
     end
