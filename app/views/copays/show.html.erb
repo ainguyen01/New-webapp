@@ -16,13 +16,6 @@
 
       <dt>Cap</dt>
       <dd><%= @copay.cap %></dd>
-
-      <!-- <dt>Url</dt>
-      <dd><%= @copay.url %></dd> -->
-
-      <!-- <dt>User</dt>
-      <dd><%= @copay.user_id %></dd> -->
-
     </dl>
 
     <div class="btn-group btn-group-justified">
@@ -40,31 +33,14 @@
         <i class="fa fa-trash" aria-hidden="true"></i>
       </a>
     </div>
-
-
-
-
   </div>
 </div>
 
-<div class="">
-
-  <% copay.comments.each do |comment| %>
-  <li class="media">
-    <div class="media-body">
-      <h6 class="media-heading">
-        <%= link_to comment.user.username, "/users/#{comment.user.id}" %>
-        <small>
-          <%= time_ago_in_words(comment.created_at) %> ago
-          <% if comment.user == current_user %>
-          <a href="/delete_comment/<%= comment.id %>">
-            <i class="fa fa-trash"></i>
-          </a>
-          <% end %>
-        </small>
-      </h6>
-      <%= comment.body %>
-    </div>
-  </li>
-  <% end %>
-</div>
+<h3>Comments</h3>
+<ul>
+<%= @copay.comments.each do |comment| %>
+<li>
+"<%=comment.body%>"
+</li>
+<%end%>
+</ul>

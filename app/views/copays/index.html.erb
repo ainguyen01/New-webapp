@@ -26,10 +26,7 @@
         <td><%= copay.pay_as_little_as %></td>
         <td><%= copay.max_saving %></td>
         <td>
-          <% if copay.thumbs_downs.any? %>
-          <%= copay.thumbs_downs.many? ? "like" : "likes" %>
-          this
-          <% end %>
+          <%= copay.thumbs_downs.count %>
         </td>
         <!--
         <td><%= copay.cap %></td>
