@@ -12,20 +12,23 @@
         <th>Name</th>
         <th>Pay as little as</th>
         <th>Max saving</th>
-        <th>Cap</th>
+        <!-- <th>Cap</th>
         <th>Url</th>
         <th>User</th>
-        <th>Actions</th>
+        <th>Actions</th> -->
       </tr>
 
       <% @copays.sort {|a,b| a.name <=> b.name }.each do |copay| %>
       <tr>
-        <td><%= copay.name %></td>
+        <td> <a href="<%= copay.url %>"> <%= copay.name %></a></td>
+
         <td><%= copay.pay_as_little_as %></td>
         <td><%= copay.max_saving %></td>
+<!--
         <td><%= copay.cap %></td>
+
         <td><%= copay.url %></td>
-        <td><%= copay.user_id %></td>
+        <td><%= copay.user_id %></td> -->
         <td>
           <a href="/copays/<%= copay.id %>" class="btn btn-primary">Show</a>
           <a href="/copays/<%= copay.id %>/edit" class="btn btn-warning">Edit</a>
