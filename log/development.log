@@ -6301,6 +6301,7 @@ Processing by CopaysController#new as HTML
 Completed 200 OK in 107ms (Views: 102.8ms | ActiveRecord: 1.0ms)
 
 
+<<<<<<< HEAD
 Started GET "/comments" for 127.0.0.1 at 2017-06-10 02:06:50 -0500
 Processing by CommentsController#index as HTML
   Rendering comments/index.html.erb within layouts/application
@@ -9201,3 +9202,5 @@ Processing by CopaysController#index as HTML
 Completed 200 OK in 3269ms (Views: 3263.3ms | ActiveRecord: 5.0ms)
 
 
+=======
+>>>>>>> parent of 48e3ede... functioning

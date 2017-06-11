@@ -65,7 +65,7 @@ Rails.application.routes.draw do
   # root to: "copays#index"
 
   # READ
-  get "/search", :controller => "copays", :action => "index"
+
   get "/copays", :controller => "copays", :action => "index"
   get "/copays/:id", :controller => "copays", :action => "show"
 
