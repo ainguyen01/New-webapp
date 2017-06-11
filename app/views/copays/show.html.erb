@@ -1,12 +1,12 @@
 <div class="page-header">
-  <h3>Copay #<%= @copay.id %></h3>
+  <h3><%= @copay.name %></h3>
 </div>
 
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
-      <dt>Name</dt>
-      <dd><%= @copay.name %></dd>
+      <dt>Get me a Card</dt>
+      <dd><a href="<%= @copay.url %>" class="btn btn-success">Click Here</a></dd>
 
       <dt>Pay as little as</dt>
       <dd><%= @copay.pay_as_little_as %></dd>
@@ -17,24 +17,54 @@
       <dt>Cap</dt>
       <dd><%= @copay.cap %></dd>
 
-      <dt>Url</dt>
-      <dd><%= @copay.url %></dd>
+      <!-- <dt>Url</dt>
+      <dd><%= @copay.url %></dd> -->
 
-      <dt>User</dt>
-      <dd><%= @copay.user_id %></dd>
+      <!-- <dt>User</dt>
+      <dd><%= @copay.user_id %></dd> -->
 
     </dl>
 
     <div class="btn-group btn-group-justified">
-      <a href="/copays" class="btn btn-primary">
-        Back
+      <a href="/copays" class="btn btn-warning">
+        <i class="fa fa-undo" aria-hidden="true"></i>
       </a>
-      <a href="/copays/<%= @copay.id %>/edit" class="btn btn-warning">
-        Edit
+      <a href="/copays/<%= @copay.id %>/edit" class="btn btn-info">
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      </a>
+
+      <a href="/create_dislike" class="btn btn-primary">
+        <i class="fa fa-thumbs-down" aria-hidden="true"></i>
       </a>
       <a href="/delete_copay/<%= @copay.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
+        <i class="fa fa-trash" aria-hidden="true"></i>
       </a>
     </div>
+
+
+
+
   </div>
+</div>
+
+<div class="">
+
+  <% copay.comments.each do |comment| %>
+  <li class="media">
+    <div class="media-body">
+      <h6 class="media-heading">
+        <%= link_to comment.user.username, "/users/#{comment.user.id}" %>
+        <small>
+          <%= time_ago_in_words(comment.created_at) %> ago
+          <% if comment.user == current_user %>
+          <a href="/delete_comment/<%= comment.id %>">
+            <i class="fa fa-trash"></i>
+          </a>
+          <% end %>
+        </small>
+      </h6>
+      <%= comment.body %>
+    </div>
+  </li>
+  <% end %>
 </div>

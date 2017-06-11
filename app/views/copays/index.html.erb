@@ -12,6 +12,7 @@
         <th>Name</th>
         <th>Pay as little as</th>
         <th>Max saving</th>
+        <th> <i class="fa fa-thumbs-down" aria-hidden="true"></i></th>
         <!-- <th>Cap</th>
         <th>Url</th>
         <th>User</th>
@@ -24,7 +25,13 @@
 
         <td><%= copay.pay_as_little_as %></td>
         <td><%= copay.max_saving %></td>
-<!--
+        <td>
+          <% if copay.thumbs_downs.any? %>
+          <%= copay.thumbs_downs.many? ? "like" : "likes" %>
+          this
+          <% end %>
+        </td>
+        <!--
         <td><%= copay.cap %></td>
 
         <td><%= copay.url %></td>

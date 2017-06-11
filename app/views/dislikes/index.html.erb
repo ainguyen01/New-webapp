@@ -9,7 +9,7 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>User</th>
+        <!-- <th>User</th> -->
         <th>Copay</th>
         <th>Actions</th>
       </tr>
@@ -17,8 +17,8 @@
       <% current_user.dislikes.each do |dislike| %>
 
       <tr>
-        <td><%= dislike.user_id %></td>
-        <td><%= dislike.copay_id %></td>
+        <!-- <td><%= dislike.user_id %></td> -->
+        <td><%= dislike.copay.name %></td>
         <td>
           <a href="/dislikes/<%= dislike.id %>" class="btn btn-primary">Show</a>
           <a href="/dislikes/<%= dislike.id %>/edit" class="btn btn-warning">Edit</a>
