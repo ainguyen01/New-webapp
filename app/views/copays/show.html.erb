@@ -30,10 +30,10 @@
       <dt>Pay as little as</dt>
       <dd><%= @copay.pay_as_little_as %></dd>
 
-      <dt>Max saving</dt>
+      <dt>Max savings</dt>
       <dd><%= @copay.max_saving %></dd>
 
-      <dt>Cap</dt>
+      <dt>Limits</dt>
       <dd><%= @copay.cap %></dd>
     </dl>
 
@@ -58,11 +58,11 @@ Number of Thumbs Down : <%=@copay.thumbs_downs.count%>
 
 <h3>Comments </h3>
 <ul>
-  <%= @copay.comments.each do |comment| %>
+  <% @copay.comments.each do |comment| %>
   <li>
-    "<%=comment.body%>"
+    <%=(comment.user.username)%>:"<%=comment.body%>"
   </li>
-  <%end%>
+  <% end %>
 
   <li class="media">
     <div class="media-body">
